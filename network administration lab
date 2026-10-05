@@ -1,0 +1,323 @@
+Network Administration Lab
+Project Overview
+
+This project documents practical networking and troubleshooting exercises designed to develop and demonstrate network administration skills.
+
+The laboratory environment simulates a small business network containing servers, client computers, networking equipment, and shared network resources.
+
+The project focuses on IP addressing, DNS, DHCP, connectivity, network troubleshooting, and basic network infrastructure management.
+
+Project Objectives
+
+The objectives of this project were to:
+
+Configure IPv4 network settings
+Understand TCP/IP networking
+Configure static IP addresses
+Configure DHCP
+Configure DNS
+Test network connectivity
+Troubleshoot network communication problems
+Understand router and switch connectivity
+Configure Windows clients for network access
+Document network infrastructure
+Develop practical network administration skills
+Lab Environment
+
+The laboratory environment includes:
+
+Windows Server
+Windows client computers
+Network router
+Ethernet networking
+Wireless networking
+Network switch
+Shared network resources
+
+Actual private network addresses and internal infrastructure details are intentionally excluded from this public repository.
+
+IPv4 Addressing
+
+The lab uses private IPv4 addressing.
+
+A typical small-business network can use a structure such as:
+
+Network:       192.168.x.0/24
+Gateway:       192.168.x.1
+DNS Server:    192.168.x.x
+DHCP Range:    192.168.x.100 - 192.168.x.200
+
+Example addresses are provided for documentation purposes only. They are not the actual network configuration.
+
+Static IP Configuration
+
+Servers and infrastructure devices should normally use predictable IP addresses.
+
+A static configuration includes:
+
+IPv4 address
+Subnet mask
+Default gateway
+Preferred DNS server
+Alternate DNS server where appropriate
+
+Windows PowerShell can be used to inspect network configuration:
+
+ipconfig /all
+
+Network adapters can also be examined using:
+
+Get-NetAdapter
+
+and:
+
+Get-NetIPConfiguration
+DHCP
+
+DHCP provides automatic network configuration to client computers.
+
+The laboratory environment explored:
+
+DHCP scopes
+Address ranges
+Default gateway
+DNS server configuration
+Lease allocation
+Client DHCP configuration
+
+A DHCP client configuration can be inspected using:
+
+ipconfig /all
+
+A client can request a new DHCP lease using:
+
+ipconfig /release
+ipconfig /renew
+DNS
+
+DNS converts hostnames into IP addresses and is particularly important in Windows Server and Active Directory environments.
+
+DNS troubleshooting was performed using:
+
+nslookup
+
+and:
+
+ipconfig /flushdns
+
+Testing name resolution helps determine whether a problem is related to DNS rather than general network connectivity.
+
+Network Connectivity Testing
+
+Basic connectivity was tested using:
+
+ping <IP-address>
+
+and:
+
+ping <hostname>
+
+The difference between testing an IP address and testing a hostname can help identify DNS-related problems.
+
+Other useful diagnostic commands include:
+
+tracert <destination>
+Test-NetConnection <destination>
+
+For example:
+
+Test-NetConnection 192.168.x.x -Port 53
+Router and Gateway
+
+The network router provides connectivity between the local network and external networks.
+
+The gateway configuration was tested to confirm that clients could communicate beyond their local subnet.
+
+Network troubleshooting included checking:
+
+Gateway availability
+IP configuration
+DNS configuration
+DHCP configuration
+Physical connectivity
+Wireless connectivity
+Network Switch
+
+A network switch provides connectivity between wired devices on the LAN.
+
+The lab environment was used to understand:
+
+Ethernet connections
+Switch ports
+LAN connectivity
+Client/server communication
+Basic network topology
+Wireless Networking
+
+Wireless connectivity was also considered as part of the network environment.
+
+Troubleshooting included checking:
+
+Wireless connection status
+IP address assignment
+Gateway configuration
+DNS resolution
+Signal/connectivity issues
+Network Troubleshooting Methodology
+
+A structured troubleshooting approach was used.
+
+Step 1 — Check Physical Connectivity
+
+Verify:
+
+Network cable
+Link lights
+Switch connection
+Wireless connection
+Step 2 — Check IP Configuration
+
+Run:
+
+ipconfig /all
+
+Check:
+
+IP address
+Subnet mask
+Gateway
+DNS server
+Step 3 — Test the Local Network
+
+Use:
+
+ping <gateway>
+Step 4 — Test DNS
+
+Use:
+
+nslookup <hostname>
+Step 5 — Test External Connectivity
+
+Use:
+
+ping 8.8.8.8
+
+or:
+
+Test-NetConnection 8.8.8.8
+Step 6 — Test Name Resolution
+
+Test a known hostname or website to determine whether DNS is functioning correctly.
+
+Common Problems Investigated
+
+The laboratory included troubleshooting scenarios such as:
+
+Incorrect IP configuration
+Incorrect DNS settings
+DHCP address problems
+Gateway connectivity
+DNS resolution failures
+Network adapter problems
+Cable connectivity
+Client/server communication
+Domain connectivity
+Wireless connectivity
+Example Troubleshooting Flow
+Client cannot access network
+          |
+          v
+Check physical connection
+          |
+          v
+Check IP configuration
+          |
+          v
+Can client reach gateway?
+       /       \
+     No         Yes
+     |           |
+Check LAN      Test DNS
+configuration    |
+                 v
+          Can hostname resolve?
+             /       \
+           No         Yes
+           |           |
+       Troubleshoot   Test
+          DNS        application/
+                     Internet access
+Network Documentation
+
+A network administrator should maintain documentation showing:
+
+Network topology
+IP address allocation
+Server addresses
+Network devices
+DHCP scopes
+DNS configuration
+Cabling
+Important services
+
+Sensitive information should never be published publicly.
+
+Security Considerations
+
+This public project does not contain:
+
+Real passwords
+Network credentials
+Private company information
+Actual internal IP addressing
+Router login information
+Wi-Fi passwords
+Sensitive infrastructure configuration
+
+All example addresses and configurations are for educational documentation.
+
+Skills Demonstrated
+
+This project demonstrates practical knowledge of:
+
+TCP/IP
+IPv4
+DNS
+DHCP
+LAN networking
+Network troubleshooting
+Router connectivity
+Switch networking
+Wireless networking
+Windows networking
+PowerShell networking commands
+Network documentation
+Lessons Learned
+
+Effective network troubleshooting requires a structured approach rather than changing multiple settings at once.
+
+Checking physical connectivity, IP configuration, gateway access, DNS resolution, and application connectivity in sequence helps isolate problems efficiently.
+
+Future Improvements
+
+Future additions to this project could include:
+
+VLAN configuration
+Inter-VLAN routing
+Cisco switch configuration
+Firewall configuration
+Network monitoring
+SNMP monitoring
+VPN configuration
+Network security
+Wi-Fi security
+Network diagrams
+Automated network documentation
+Author
+
+Reginald Murathe
+
+IT Support | Systems Administration | Network Administration | IT Infrastructure
+
+Kenya
